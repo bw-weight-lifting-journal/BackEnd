@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Weightlifting Journal",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bw-weight-lifting-journal/BackEnd.git"
+  },
+  "keywords": [
+    "Weightlifting"
+  ],
+  "author": "Matt Locklin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bw-weight-lifting-journal/BackEnd/issues"
+  },
+  "homepage": "https://github.com/bw-weight-lifting-journal/BackEnd#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.19.1",
+    "knex-cleaner": "^1.2.1",
+    "pg": "^7.12.0",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "nodemon": "^1.19.1"
+  }
+}
