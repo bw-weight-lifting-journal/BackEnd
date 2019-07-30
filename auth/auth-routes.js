@@ -9,6 +9,7 @@ const db = require('../users/users-helpers');
 router.post('/register', (req, res) => {
 
     let user = req.body;
+    console.log(req.body);
     const hash = bcrypt.hashSync(user.password, 14);
     user.password = hash;
 
@@ -22,14 +23,14 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    let { name, password } = req.body;
-
-    db.findBy(name)
+    let { userName, password } = req.body;
+    console.log(req.body);
+    db.findBy(userName)
         .then(user => {
             console.log(user);
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = generateToken(user);
-                res.status(200).json({ Message: `Welcome ${user.name}!`, Token: token });
+                res.status(200).json({ Message: `Welcome ${user.userName}!`, Token: token });
             } else {
                 res.status(401).json({ Message: 'Invalid credentials' });
             }
