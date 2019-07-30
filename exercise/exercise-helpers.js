@@ -2,7 +2,7 @@ const db = require('../data/configDb');
 
 function findExercise() {
     return db('arms')
-        .select('id', 'excerciseName');
+        .select('id', 'exerciseName');
 }
 
 function findExerciseById(id) {

@@ -19,37 +19,37 @@ exports.up = function(knex) {
         })
         .createTable('arms', table => {
             table.increments();
-            table.string('excerciseName')
+            table.string('exerciseName')
                 .notNullable()
                 .unique();
         })
         .createTable('shoulders', table => {
             table.increments();
-            table.string('excerciseName')
+            table.string('exerciseName')
                 .notNullable()
                 .unique();
         })
         .createTable('chest', table => {
             table.increments();
-            table.string('excerciseName')
+            table.string('exerciseName')
                 .notNullable()
                 .unique();
         })
         .createTable('back', table => {
             table.increments();
-            table.string('excerciseName')
+            table.string('exerciseName')
                 .notNullable()
                 .unique();
         })
         .createTable('core', table => {
             table.increments();
-            table.string('excerciseName')
+            table.string('exerciseName')
                 .notNullable()
                 .unique();
         })
         .createTable('legs', table => {
             table.increments();
-            table.string('excerciseName')
+            table.string('exerciseName')
                 .notNullable()
                 .unique();
         });
