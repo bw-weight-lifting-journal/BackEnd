@@ -1,10 +1,9 @@
-// Update with your config settings.
 const { DbConnect } = require('./config/config');
 
 module.exports = {
   development: {
-    client: "pg", // pg is the database library for postgreSQL on knexjs
-    connection: DbConnect, // Your local host IP
+    client: "pg", 
+    connection: DbConnect, 
     migrations: {
       directory: './data/migrations'
     },
