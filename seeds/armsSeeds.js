@@ -5,12 +5,12 @@ exports.seed = function (knex) {
         .then(function () {
             // Inserts seed entries
             return knex('arms').insert([
-                { excerciseName: 'Hammer Curl' },
-                { excerciseName: 'Dumbell Bicep Curl' },
-                { excerciseName: 'Barbell Bicep Curl' },
-                { excerciseName: 'Tricep Dip' },
-                { excerciseName: 'Rope Pull down' },
-                { excerciseName: 'Overhead pull' },
+                { exerciseName: 'Hammer Curl' },
+                { exerciseName: 'Dumbell Bicep Curl' },
+                { exerciseName: 'Barbell Bicep Curl' },
+                { exerciseName: 'Tricep Dip' },
+                { exerciseName: 'Rope Pull down' },
+                { exerciseName: 'Overhead pull' },
 
             ]);
         });

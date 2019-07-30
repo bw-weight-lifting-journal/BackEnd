@@ -5,9 +5,9 @@ exports.seed = function (knex) {
         .then(function () {
             // Inserts seed entries
             return knex('core').insert([
-                { excerciseName: 'Spider Crawl' },
-                { excerciseName: 'Weighted Sit up' },
-                { excerciseName: 'Leg Raises' },
+                { exerciseName: 'Spider Crawl' },
+                { exerciseName: 'Weighted Sit up' },
+                { exerciseName: 'Leg Raises' },
             ]);
         });
 };

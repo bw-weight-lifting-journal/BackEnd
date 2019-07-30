@@ -12,6 +12,7 @@ router.get('/', restricted, (req, res) => {
 });
 
 router.get('/:id', restricted, (req, res) => {
+    console.log(req.params.id);
     db.findById(req.params.id)
         .then(users => {
             res.json(users);
