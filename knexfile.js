@@ -1,5 +1,5 @@
 // Update with your config settings.
-const { DbConnect } = require('./config');
+const { DbConnect } = require('./config/config');
 
 module.exports = {
   development: {

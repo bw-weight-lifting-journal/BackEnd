@@ -2,17 +2,17 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const secret = require('../config/secrets.js');
+const secret = require('../config/secrets');
 
-const db = require('../users/users.helpers');
+const db = require('../users/users-helpers');
 
 router.post('/register', (req, res) => {
+
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 14);
     user.password = hash;
 
     db.add(user)
-        // eslint-disable-next-line arrow-parens
         .then(response => {
             res.status(201).json(response);
         })
@@ -22,14 +22,14 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    let { username, password } = req.body;
+    let { name, password } = req.body;
 
-    db.findBy({ username })
-        .first()
+    db.findBy(name)
         .then(user => {
+            console.log(user);
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = generateToken(user);
-                res.status(200).json({ Message: `Welcome ${user.username}!`, Token: token });
+                res.status(200).json({ Message: `Welcome ${user.name}!`, Token: token });
             } else {
                 res.status(401).json({ Message: 'Invalid credentials' });
             }
