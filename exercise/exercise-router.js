@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const db = require('./excercise-helpers');
+const db = require('./exercise-helpers');
 const restricted = require('../middleware/restricted-route');
 
 router.get('/arms', restricted, (req, res) => {

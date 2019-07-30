@@ -6,7 +6,7 @@ function findExercise() {
 }
 
 function findExerciseById(id) {
-    return db('users')
+    return db('arms')
         .select('id', 'name')
         .where({ 'id': id })
         .first();
