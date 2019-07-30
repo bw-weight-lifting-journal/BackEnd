@@ -1,24 +1,22 @@
 const router = require('express').Router();
-const db = require('./users-helpers');
+const db = require('./excercise-helpers');
 const restricted = require('../middleware/restricted-route');
 
-
-router.get('/', restricted, (req, res) => {
-    db.find()
+router.get('/arms', restricted, (req, res) => {
+    db.findExercise()
         .then(users => {
             res.json(users);
         })
         .catch(err => res.send(err));
 });
 
-router.get('/:id', restricted, (req, res) => {
-    db.findById(req.params.id)
+router.get('/arms/:id', restricted, (req, res) => {
+    db.findExerciseById(req.params.id)
         .then(users => {
             res.json(users);
         })
         .catch(err => res.send(err));
 });
-
-
 
 module.exports = router;
+

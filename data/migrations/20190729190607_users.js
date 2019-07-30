@@ -16,10 +16,53 @@ exports.up = function(knex) {
             table.string('password')
                 .notNullable();
             table.timestamps();
+        })
+        .createTable('arms', table => {
+            table.increments();
+            table.string('excerciseName')
+                .notNullable()
+                .unique();
+        })
+        .createTable('shoulders', table => {
+            table.increments();
+            table.string('excerciseName')
+                .notNullable()
+                .unique();
+        })
+        .createTable('chest', table => {
+            table.increments();
+            table.string('excerciseName')
+                .notNullable()
+                .unique();
+        })
+        .createTable('back', table => {
+            table.increments();
+            table.string('excerciseName')
+                .notNullable()
+                .unique();
+        })
+        .createTable('core', table => {
+            table.increments();
+            table.string('excerciseName')
+                .notNullable()
+                .unique();
+        })
+        .createTable('legs', table => {
+            table.increments();
+            table.string('excerciseName')
+                .notNullable()
+                .unique();
         });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
     return knex.schema
+        .dropTableIfExists('legs')
+        .dropTableIfExists('core')
+        .dropTableIfExists('back')
+        .dropTableIfExists('chest')
+        .dropTableIfExists('shoulders')
+        .dropTableIfExists('arms')
         .dropTableIfExists('users');
 };
+

@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const authRouter = require('./auth/auth-routes');
 const usersRouter = require('./users/users-router');
+const excerciseRouter = require('./excercise/excercise-router');
 
 
 server.use(helmet());
@@ -14,6 +15,7 @@ server.use(cors());
 
 server.use('/api/auth', authRouter);
 server.use('/api/users', usersRouter);
+server.use('/api/excercises', excerciseRouter);
 
 server.get('/', (req, res) => {
     res.send("It's alive!");
