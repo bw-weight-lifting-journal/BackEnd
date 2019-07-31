@@ -1,7 +1,7 @@
 const db = require('../data/configDb');
 
-function findExercise() {
-    return db('arms')
+function findExercise(name) {
+    return db(name)
         .select('id', 'exerciseName');
 }
 
