@@ -3,17 +3,12 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const secret = require('../config/secrets');
+const hashPassword = require('../middleware/hashPassword');
 
 const db = require('../users/users-helpers');
 
-router.post('/register', (req, res) => {
-
-    let user = req.body;
-    console.log(req.body);
-    const hash = bcrypt.hashSync(user.password, 14);
-    user.password = hash;
-
-    db.add(user)
+router.post('/register', hashPassword, (req, res) => {
+    db.add(req.user)
         .then(response => {
             res.status(201).json(response);
         })
@@ -24,10 +19,8 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     let { userName, password } = req.body;
-    console.log(req.body);
     db.findBy(userName)
         .then(user => {
-            console.log(user);
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = generateToken(user);
                 res.status(200).json({ Message: `Welcome ${user.userName}!`, Token: token });

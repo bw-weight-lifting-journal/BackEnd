@@ -20,39 +20,40 @@ exports.up = function(knex) {
         .createTable('arms', table => {
             table.increments();
             table.string('exerciseName')
-                .notNullable()
-                .unique();
+                .notNullable();
+                
         })
         .createTable('shoulders', table => {
             table.increments();
             table.string('exerciseName')
-                .notNullable()
-                .unique();
+                .notNullable();
+                
         })
         .createTable('chest', table => {
             table.increments();
             table.string('exerciseName')
-                .notNullable()
-                .unique();
+                .notNullable();
+                
         })
         .createTable('back', table => {
             table.increments();
             table.string('exerciseName')
-                .notNullable()
-                .unique();
+                .notNullable();
+                
         })
         .createTable('core', table => {
             table.increments();
             table.string('exerciseName')
-                .notNullable()
-                .unique();
+                .notNullable();
+                
         })
         .createTable('legs', table => {
             table.increments();
             table.string('exerciseName')
-                .notNullable()
-                .unique();
+                .notNullable();
+                
         });
+       
 };
 
 exports.down = function (knex) {

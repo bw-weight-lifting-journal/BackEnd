@@ -18,7 +18,7 @@ server.use('/api/users', usersRouter);
 server.use('/api/exercises', excerciseRouter);
 
 server.get('/', (req, res) => {
-    res.send("It's alive!");
+    res.json({Message: 'Its Alive'});
 });
 
 module.exports = server;

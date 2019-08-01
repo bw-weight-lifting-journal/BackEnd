@@ -1,5 +1,14 @@
 const db = require('../data/configDb');
 
+function findWorkout() {
+    return db('workout');
+}
+function insertWorkout(newWorkout) {
+    return db('workout')
+        .returning(['id', 'user_id', 'sets', 'weight', 'reps', 'difficulty'])
+        .insert(newWorkout);
+}
+
 function findExercise(name) {
     return db(name)
         .select('id', 'exerciseName');
@@ -39,5 +48,7 @@ module.exports = {
     findExerciseById,
     insertExercise,
     updateExercise,
-    deleteExercise
+    deleteExercise,
+    findWorkout,
+    insertWorkout
 };

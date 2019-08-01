@@ -2,6 +2,26 @@ const router = require('express').Router();
 const db = require('./exercise-helpers');
 const restricted = require('../middleware/restricted-route');
 
+router.get('/workout', restricted, (req, res) => {
+    db.findWorkout()
+        .then(workout => {
+            res.status(200).json(workout);
+        })
+        .catch(err => {
+            res.status(500).json({ Error: 'Internal Server Error' });
+        });
+});
+
+router.post('/workout', restricted, (req, res) => {
+    db.insertWorkout(req.body)
+        .then(workout => {
+            res.status(201).json(workout);
+        })
+        .catch(err => {
+            res.status(500).json({ Error: 'Internal Server Error' });
+        });
+});
+
 router.get('/:name', restricted, (req, res) => {
     db.findExercise(req.params.name)
         .then(exercises => {
