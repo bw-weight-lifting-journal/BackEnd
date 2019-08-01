@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const authRouter = require('./auth-routes');
+const server = require('../server');
 
 describe('auth-routes.js', () => {
     describe('register', () => {
@@ -9,18 +9,34 @@ describe('auth-routes.js', () => {
             const testUser = {
                 "firstName": "cotton",
                 "lastName": "eyed joe",
-                "userName": "test",
-                "email": "test",
+                "userName": "test4",
+                "email": "test4",
                 "password": "12345"
             };
     
-            const response = await request(authRouter)
-                .post('/register')
+           await request(server)
+                .post('/api/auth/register')
                 .send(testUser)
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
-                .expect(201);
-            console.log(response);
+                .expect(201)
+                .expect(Array);
+        });
+    });
+    describe('login', () => {
+        it('Should return 200 status code and login returning name and auth token', async () => {
+            const testLogin = {
+                userName: 'test',
+                password: '12345'
+            };
+            await request(server)
+                .post('/api/auth/login')
+                .send(testLogin)
+                .set('Accept', 'application/json')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .expect(Object);
+            
         });
     });
 });
